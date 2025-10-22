@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ScrabbleGame {
 
     //a data structure to hold the dictionary of words
-    private List<Word> dictionary = new ArrayList<Word>();
+    private static List<Word> dictionary = new ArrayList<Word>();
 
     public static void main(String[] args) {
 
