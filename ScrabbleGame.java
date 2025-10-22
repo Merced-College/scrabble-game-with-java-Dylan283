@@ -1,3 +1,17 @@
+/*
+ * Improvement: Added a scoring system where the user can type in a word,
+ * and the program will check if it exists in the dictionary. If it does,
+ * the user earns points based on the length of the word:
+ *   - 1–2 letters = 1 point
+ *   - 3 letters   = 3 points
+ *   - 4 letters   = 5 points
+ *   - 5 letters   = 8 points
+ *   - 6+ letters  = 12 points
+ *
+ * This makes the game more interactive and rewarding, encouraging the user
+ * to form longer words for higher scores.
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,7 +40,6 @@ public class ScrabbleGame {
             System.err.println("Dictionary file not found.");
         }
 
-
         //print out the dictionary
         for(word w : dictionary) { 
             System.out.println(w);
@@ -34,9 +47,9 @@ public class ScrabbleGame {
 
         // ------------------- NEW FEATURE START -------------------
         // Ask the user to enter a word and score it
+        Scanner input = new Scanner(System.in);
         System.out.print("Enter a word to check and score: ");
-        Scanner userInput = new Scanner(System.in);
-        String userWord = userInput.nextLine().trim();
+        String userWord = input.nextLine().toLowerCase();
 
         // Check if the word exists in the dictionary
         int index = binarySearch(dictionary, userWord);
@@ -72,6 +85,9 @@ public class ScrabbleGame {
         }
         return -1; // target not found
     }
+
+    // ------------------- HELPER METHOD FOR NEW FEATURE -------------------
+    // Calculate score based on word length
     public static int calculateScore(String word) {
         int len = word.length();
         if(len <= 2) {
