@@ -2,7 +2,7 @@ public class word implements Comparable<word> {
     private String word;
     private String definition;
 
-    public Word() {
+    public word() {
         word = "none";
         definition = "none";
     }
