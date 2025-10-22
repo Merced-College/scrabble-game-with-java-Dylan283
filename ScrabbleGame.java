@@ -1,17 +1,3 @@
-/*
- * Improvement: Added a scoring system where the user can type in a word,
- * and the program will check if it exists in the dictionary. If it does,
- * the user earns points based on the length of the word:
- *   - 1–2 letters = 1 point
- *   - 3 letters   = 3 points
- *   - 4 letters   = 5 points
- *   - 5 letters   = 8 points
- *   - 6+ letters  = 12 points
- *
- * This makes the game more interactive and rewarding, encouraging the user
- * to form longer words for higher scores.
- */
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -42,7 +28,7 @@ public class ScrabbleGame {
 
         //print out the dictionary with point values
         for (word w : dictionary) { 
-            System.out.println(w + " (Points: " + w.getPoints() + ")");
+            System.out.println(w);
         }
 
        
