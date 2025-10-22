@@ -40,29 +40,12 @@ public class ScrabbleGame {
             System.err.println("Dictionary file not found.");
         }
 
-        //print out the dictionary
-        for(word w : dictionary) { 
-            System.out.println(w);
+        //print out the dictionary with point values
+        for (word w : dictionary) { 
+            System.out.println(w + " (Points: " + w.getPoints() + ")");
         }
 
-        // ------------------- NEW FEATURE START -------------------
-        // Ask the user to enter a word and score it
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter a word to check and score: ");
-        String userWord = input.nextLine().toLowerCase();
-
-        // Check if the word exists in the dictionary
-        int index = binarySearch(dictionary, userWord);
-        if(index != -1) {
-            // Word found, calculate score
-            int score = calculateScore(userWord);
-            System.out.println("Great! '" + userWord + "' is in the dictionary.");
-            System.out.println("You earned " + score + " points!");
-        } else {
-            // Word not found
-            System.out.println("Sorry, '" + userWord + "' is not in the dictionary. No points awarded.");
-        }
-        // ------------------- NEW FEATURE END -------------------
+       
 
     }//end main
 
@@ -84,22 +67,5 @@ public class ScrabbleGame {
             }
         }
         return -1; // target not found
-    }
-
-    // ------------------- HELPER METHOD FOR NEW FEATURE -------------------
-    // Calculate score based on word length
-    public static int calculateScore(String word) {
-        int len = word.length();
-        if(len <= 2) {
-            return 1; // very short words
-        } else if(len == 3) {
-            return 3;
-        } else if(len == 4) {
-            return 5;
-        } else if(len == 5) {
-            return 8;
-        } else {
-            return 12; // long words are rewarded more
-        }
     }
 }

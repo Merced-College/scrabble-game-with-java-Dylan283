@@ -39,5 +39,13 @@ public class word implements Comparable<word> {
         return this.word.compareTo(other.word);
     }
 
+    public int getPoints() {
+        int length = word.length();
+        if (length <= 2) return 0;       // too short, no points
+        else if (length <= 4) return 1;  // short words
+        else if (length <= 6) return 2;  // medium words
+        else if (length <= 8) return 3;  // long words
+        else return 5;                   // very long words
+    }
 
 }
