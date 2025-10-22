@@ -2,7 +2,7 @@ public class word implements Comparable<word> {
     private String word;
     private String definition;
 
-    public String word() {
+    public Word() {
         word = "none";
         definition = "none";
     }
@@ -39,5 +39,5 @@ public class word implements Comparable<word> {
         return this.word.compareTo(other.word);
     }
 
-    
+
 }
